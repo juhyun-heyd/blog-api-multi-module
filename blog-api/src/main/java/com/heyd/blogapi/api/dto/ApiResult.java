@@ -1,9 +1,7 @@
 package com.heyd.blogapi.api.dto;
 
-import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
-@Getter
 public class ApiResult<T> {
 
     private final boolean success;
@@ -14,6 +12,18 @@ public class ApiResult<T> {
         this.success = success;
         this.response = response;
         this.errors = errors;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public T getResponse() {
+        return response;
+    }
+
+    public ApiError getErrors() {
+        return errors;
     }
 
     public static <T> ApiResult<T> ok(T response) {

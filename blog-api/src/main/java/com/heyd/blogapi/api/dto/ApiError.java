@@ -1,9 +1,7 @@
 package com.heyd.blogapi.api.dto;
 
-import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
-@Getter
 public class ApiError {
 
     private final String message;
@@ -16,5 +14,13 @@ public class ApiError {
     public ApiError(String message, HttpStatus status) {
         this.message = message;
         this.status = status.value();
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public int getStatus() {
+        return status;
     }
 }
